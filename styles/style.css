@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;1,800&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.playfair-display-title {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+body{
+    background-image: url(../assets/background-animation.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100dvh;
+}
+
+header{
+    height: 120px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.cabecera{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: last baseline;
+}
+
+.lineaDivisoraCabecera{
+    height: 2px;
+    width: 95%;
+    background-color: rgba(256,256,256,0.35);
+}
+
+h1{
+    font-size: 3em;
+    color: #ffffffc9;
+    margin-left: 3dvw;
+}
+
+.botonMenuDesplegable{
+    display: flex;
+    flex-direction: column;
+    width: 3rem;
+    gap: 0.6rem;
+    background: transparent;
+    border: 0;
+    margin: 0 3dvw 0 0;
+    cursor: pointer;
+}
+
+.botonMenuDesplegable div{
+    background: #ffffffc9;
+    height: 3px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+main{
+    color: #ffffffc9;
+    min-height: auto;
+    width: auto;
+    display: flex;
+    flex-flow: row wrap;
+    flex: 2 1 30%;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2em;
+    margin: 20%  2em;
+}
+
+.nombreEmpresa{
+    display: flex;
+    flex-flow: wrap nowrap;
+    justify-content: flex-start;
+}
+
+.nombreEmpresa::after{
+    content: "";
+    width: 3px;
+    margin-left: 2em;
+    background-color: rgba(256,256,256,0.35);
+}
+
+.textoVertical{
+    font-size: 7em;
+    color: white;
+    text-shadow: 10px 2px 0 #272021;
+    text-transform: UPPERCASE;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+
+.desarrollo-acceso{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.desarrollo{
+    font-size: 2em;
+    text-shadow: 1px 1px 0.5px #272021;
+    backdrop-filter: blur(2px);
+    text-align: justify;
+}
+
+.fraseFinal{
+    text-shadow: none;
+    color: #ffffff71;
+    margin-top: 35px;
+}
+
+.accesoBotones{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.accesoBotones--botones{
+    font-size: 2em;
+    padding: 20px;
+    margin: 2rem;
+    border: solid 2px;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #ffffffc9;
+}
+
+.accesoBotones--botones:active{
+    color: #272021;
+    box-shadow: 10px 10px 20px #de9d48cb, -5px -5px 20px #de9d48cb;
+    background-color: #ffffffa6;
+    border-color: #ffffffc9;
+}
+
+.botonSesion:hover{
+    scale: 1.1;
+}
+
+.b-admin{
+    border-color: #ffffffc9;
+    background-color: #372c2e8c;
+}
+
+.b-empleados{
+    border-color: #DE9E48 ;
+    background-color: #372C2E;
+    box-shadow: 1px 1px 20px #de9d48cb;
+}
+
+/*  ----------------------------- */
+
+.formularios{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    backdrop-filter: blur(10px);
+}
+
+.formularioIngreso{
+    min-width: 50%;
+    max-width: 90%;
+    min-height: 20em;
+    border: solid 2px;
+    border-radius: 10px;
+    background-color: #372c2ede;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 10px 5px 6px #DE9E48;
+}
+
+h3{ 
+    margin: 10% 2%;
+    font-size: 1.8em;
+    text-transform: UPPERCASE;
+    text-align: center;
+}
+
+.formularioIngreso--ajuste{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 1em;
+}
+
+fieldset{
+    border: none;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content:center;
+    gap: 0.3em;
+    font-size: 1.5em;
+}
+
+input{
+    height: 1.7em;
+    width: auto;
+    font-size: 0.7em;
+}
+
+.botonSesion{
+    font-size: 1em;
+    padding: 10px;
+    margin: 0.5em 1em;
+}
+
+.botonExit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+    border: solid 2px #ffffffc9;
+    border-radius: 50%;
+    background: #372c2ede;
+    gap: 1.8rem;
+    cursor: pointer;
+}
+
+.botonExit:active{
+    color: #272021;
+    box-shadow: 10px 10px 20px #de9d48cb, -5px -5px 20px #de9d48cb;
+    background-color: #ffffffa6;
+    border-color: transparent;
+}
+
+.botonExit:active div{
+    background-color: #272021;
+}
+
+.botonExit:hover{
+    scale: 1.2;
+}
+
+.botonExit div{
+    background: #ffffffc9;
+    height: 2px;
+    width: 100%;
+    margin-left: 0.45rem;    
+    border-radius: 10px;
+    transform-origin: left;
+}
+
+.botonExit div:first-child{
+    transform: rotate(45deg);
+}
+
+.botonExit div:nth-child(2){
+    transform: rotate(-45deg);
+}
+
+/* ------------ */
+
+.formularioActivo{
+    z-index: 5;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* --------- */
+
+@media (max-width: 769px ){
+    header{
+        height: 150px;
+        gap: 0.5em;
+    }
+    .cabecera{
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1em;
+        gap: 0.5em;
+    }
+    h1{
+        margin-left: 0;
+    }
+    .botonMenuDesplegable{
+        margin: 0;
+    }
+    .desarrollo{
+        font-size: 1.4rem;
+    }
+    .accesoBotones--botones{
+        font-size: 1.6rem;
+    }
+}
+@media (max-width: 1025px ){
+    .nombreEmpresa::after{
+        content: none;
+    }
+    .desarrollo{
+        text-align: center;
+    }
+}
