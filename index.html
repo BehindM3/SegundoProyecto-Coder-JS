@@ -31,11 +31,11 @@
                 <p class="fraseFinal">¡Asegúrate de que cada minuto y esfuerzo cuenten, registrando toda la información clave de tu equipo en un solo lugar!</p>
             </div>
             <div class="accesoBotones">
-                <button class="accesoBotones--botones b-admin">Administrador</button>
-                <button class="accesoBotones--botones b-empleados">Empleados</button>
+                <button class="accesoBotones--botones b-admin" id="ingresoAdmin">Administrador</button>
+                <button class="accesoBotones--botones b-empleados" id="ingresoEmpleados">Empleados</button>
             </div>
         </section>
-        <section class="formularios">
+        <section class="formularios formularioActivoEmpleados" id="formularioEmpleados">
             <div class="formularioIngreso">
                 <h3>Inicio de sesion empleado</h3>
                 <form method="get" class="formularioIngreso--ajuste">
@@ -47,10 +47,18 @@
                         <label for="claveUsuarioEmpleado">Contraseña:</label>
                         <input type="password" name="claveUsuarioEmpleado" id="claveUsuarioEmpleado" required>
                     </fieldset>
+                    <fieldset>
+                        <button type="submit" class="accesoBotones--botones botonSesion">Enviar</button>
+                        <button type="reset" class="accesoBotones--botones botonSesion">Limpiar</button>
+                    </fieldset>
                 </form>
             </div>
+            <button class="botonExit">
+                <div></div>
+                <div></div>
+            </button>
         </section>
-        <section class="formularios formularioActivo">
+        <section class="formularios formularioActivoAdministrador" id="formularioAdmin">
             <div class="formularioIngreso">
                 <h3>Inicio de sesion administrador</h3>
                 <form method="get" class="formularioIngreso--ajuste">
