@@ -1,6 +1,8 @@
 const UsuariosEmpleados = [{id: 1 ,usuario: "Javier", clave: "1234"}, {id: 2 ,usuario: "Ezequiel", clave: "abcd"}];
 const Administrador = {usuario: "admin", clave: "admin"};
 
+let empleadoSeleccionado
+
 document.getElementById("ingresoEmpleados").addEventListener("click", () => {
     let formularioIngresoAdmin = document.getElementById("formularioEmpleados");
     formularioIngresoAdmin.style.display = "flex"; 
@@ -34,22 +36,47 @@ function comprobacionCredenciales(usuarioWeb, claveWeb){
     return validacion
 }
 
-function redireccionWeb(pagWeb, validacion){
+function redireccionWeb(pagWeb, validacion, usuario){
     if( validacion ){
-        window.location.href = "../pages/admin"
+        empleadoSeleccionado = usuario;
+        window.location.href = pagWeb;
     }
 }
 
-document.getElementById("submitAdmin").addEventListener("click", () => {    
+document.getElementById("submitEmpleados").addEventListener("click", () => {    
 
-    let usuarioAdminWeb = document.getElementById("nombreUsuarioAdmin").value;
-    let claveAdminWeb = document.getElementById("claveUsuarioAdmin").value;
+    let usuarioEmpleadoWeb = document.getElementById("nombreUsuarioEmpleado").value;
+    let claveEmpleadoWeb = document.getElementById("claveUsuarioEmpleado").value;
 
-    document.getElementById("nombreUsuarioAdmin").value = "";
-    document.getElementById("claveUsuarioAdmin").value = "";
+    const validacion = comprobacionCredenciales(usuarioEmpleadoWeb,claveEmpleadoWeb);
 
-    const validacion = comprobacionCredenciales(usuarioAdminWeb,claveAdminWeb);
+    redireccionWeb("../pages/empleado.html", validacion, usuarioEmpleadoWeb);
 
-    console.log(validacion);
+    document.getElementById("nombreUsuarioEmpleado").value = "";
+    document.getElementById("claveUsuarioEmpleado").value = "";
+});
+
+
+//Empleados 
+
+const horariosEmpleados = [];
+
+document.getElementById("cargaNombreEmpleado").value = empleadoSeleccionado;
+
+function agregarNuevoHorario(nombre, fecha, entrada, salida, area){
+
+
+}
+
+document.getElementById("submitCargarHorario").addEventListener("click", () => {
     
+    let nombreEmpleadoCargaHorario = document.getElementById("cargaNombreEmpleado");
+    let fechaCargaHorario = document.getElementById(cargaFechaEmpleado);
+    let entradaCargaHorario = document.getElementById(cargaHoraEntradaEmpleado);
+    let salidaCargaHorario = document.getElementById(cargaHoraSalidaEmpleado);
+    let areaTrabajoCargaHorario = document.getElementById(cargaAreaEmpleado);
+
+    
+
+
 });

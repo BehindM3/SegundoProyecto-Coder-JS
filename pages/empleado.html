@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>WT Empleado</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="./js/main" defer></script>
+</head>
+<body>
+    <header>
+        <section class="cabecera">
+            <h1 id="titulo">WO\ME</h1>
+            <button type="button" id="botonMenuDesplegable" class="botonMenuDesplegable" >
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+        </section>
+        <div class="lineaDivisoraCabecera"></div>
+    </header>
+    <main class="mainCargaHorario">
+        <section class="cargaHorarioEmpleado">
+            <div class="tituloHorario">
+                <h2>Cargar mi horario</h2>
+            </div>
+            <form method="get" class="formCargaHorarioEmpleado">
+                <fieldset>
+                    <label for="cargaNombreEmpleado">Nombre empleado:</label>
+                    <input type="text" name="cargaNombreEmpleado" id="cargaNombreEmpleado">
+                </fieldset>
+                <fieldset>
+                    <label for="cargaFechaEmpleado">Fecha:</label>
+                    <input type="date" name="cargaFechaEmpleado" id="cargaFechaEmpleado">
+                </fieldset>
+                <fieldset>
+                    <label for="cargaHoraEntradaEmpleado">Hora de entrada:</label>
+                    <input type="time" name="cargaHoraEntradaEmpleado" id="cargaHoraEntradaEmpleado">
+                </fieldset>
+                <fieldset>
+                    <label for="cargaHoraSalidaEmpleado">Hora de salida:</label>
+                    <input type="time" name="cargaHoraSalidaEmpleado" id="cargaHoraSalidaEmpleado">
+                </fieldset>
+                <fieldset>
+                    <label for="cargaAreaEmpleado">Area:</label>
+                    <select name="cargaAreaEmpleado" id="cargaAreaEmpleado">
+                        <option value="" selected disabled>-</option>
+                        <option value="Ingeniero">Ingenieros</option>
+                        <option value="RRHH">RRHH</option>
+                        <option value="Gerentes">Gerentes</option>
+                        <option value="Administrativo">Administrativo</option>
+                    </select>
+                </fieldset>
+                <fieldset class="fieldBotonesCargaHorario">
+                    <button type="submit" class="botonCargaHorario" id="submitCargarHorario">Enviar</button>
+                    <button type="reset" class="botonCargaHorario">Limpiar</button>
+                </fieldset>
+            </form>
+        </section>
+        <section class="historialHorariosEmpleado">
+            <div class="tituloHistorial">
+                <h2>Historial</h2>
+            </div>
+            <section id="historialHorario"></section>
+        </section>
+    </main>
+</body>
+</html>
