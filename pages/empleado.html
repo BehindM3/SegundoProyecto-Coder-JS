@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
-    <script src="./js/main" defer></script>
+    <script src="../js/empleado.js" defer></script>
 </head>
 <body>
     <header>
@@ -27,7 +27,7 @@
             <form method="get" class="formCargaHorarioEmpleado">
                 <fieldset>
                     <label for="cargaNombreEmpleado">Nombre empleado:</label>
-                    <input type="text" name="cargaNombreEmpleado" id="cargaNombreEmpleado">
+                    <input type="text" name="cargaNombreEmpleado" id="cargaNombreEmpleado" disabled>
                 </fieldset>
                 <fieldset>
                     <label for="cargaFechaEmpleado">Fecha:</label>
@@ -43,7 +43,7 @@
                 </fieldset>
                 <fieldset>
                     <label for="cargaAreaEmpleado">Area:</label>
-                    <select name="cargaAreaEmpleado" id="cargaAreaEmpleado">
+                    <select name="cargaAreaEmpleado" id="cargaAreaEmpleado" disabled>
                         <option value="" selected disabled>-</option>
                         <option value="Ingeniero">Ingenieros</option>
                         <option value="RRHH">RRHH</option>
@@ -53,7 +53,7 @@
                 </fieldset>
                 <fieldset class="fieldBotonesCargaHorario">
                     <button type="submit" class="botonCargaHorario" id="submitCargarHorario">Enviar</button>
-                    <button type="reset" class="botonCargaHorario">Limpiar</button>
+                    <button type="reset" class="botonCargaHorario" id="resetCargarHorario">Limpiar</button>
                 </fieldset>
             </form>
         </section>

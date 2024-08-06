@@ -1,7 +1,10 @@
-const UsuariosEmpleados = [{id: 1 ,usuario: "Javier", clave: "1234"}, {id: 2 ,usuario: "Ezequiel", clave: "abcd"}];
-const Administrador = {usuario: "admin", clave: "admin"};
+const UsuariosEmpleados = [{id: 1 ,usuario: "Javier", clave: "1234"}, {id: 2 ,usuario: "Ezequiel", clave: "abcd"}, {id: 3 ,usuario: "Lisandro", clave: "a1b2"}, {id: 4 ,usuario: "Luna", clave: "2001abc"}];
+const Administrador = {usuario: "admin", clave: "admin", };
+const Empleados = [{id: 1 ,usuario: "Javier", area: "Ingeniero"}, {id: 2 ,usuario: "Ezequiel", area: "RRHH"}, {id: 3 ,usuario: "Lisandro", area: "Gerente"}, {id: 4 ,usuario: "Luna", area: "Administrativo"}]
 
-let empleadoSeleccionado
+Empleados.forEach(empleado => {
+    localStorage.setItem(empleado.usuario, empleado.area);
+});
 
 document.getElementById("ingresoEmpleados").addEventListener("click", () => {
     let formularioIngresoAdmin = document.getElementById("formularioEmpleados");
@@ -38,7 +41,7 @@ function comprobacionCredenciales(usuarioWeb, claveWeb){
 
 function redireccionWeb(pagWeb, validacion, usuario){
     if( validacion ){
-        empleadoSeleccionado = usuario;
+        localStorage.setItem("empleadoSeleccionado", usuario);
         window.location.href = pagWeb;
     }
 }
@@ -50,33 +53,8 @@ document.getElementById("submitEmpleados").addEventListener("click", () => {
 
     const validacion = comprobacionCredenciales(usuarioEmpleadoWeb,claveEmpleadoWeb);
 
-    redireccionWeb("../pages/empleado.html", validacion, usuarioEmpleadoWeb);
+    redireccionWeb("./pages/empleado.html", validacion, usuarioEmpleadoWeb);
 
     document.getElementById("nombreUsuarioEmpleado").value = "";
     document.getElementById("claveUsuarioEmpleado").value = "";
-});
-
-
-//Empleados 
-
-const horariosEmpleados = [];
-
-document.getElementById("cargaNombreEmpleado").value = empleadoSeleccionado;
-
-function agregarNuevoHorario(nombre, fecha, entrada, salida, area){
-
-
-}
-
-document.getElementById("submitCargarHorario").addEventListener("click", () => {
-    
-    let nombreEmpleadoCargaHorario = document.getElementById("cargaNombreEmpleado");
-    let fechaCargaHorario = document.getElementById(cargaFechaEmpleado);
-    let entradaCargaHorario = document.getElementById(cargaHoraEntradaEmpleado);
-    let salidaCargaHorario = document.getElementById(cargaHoraSalidaEmpleado);
-    let areaTrabajoCargaHorario = document.getElementById(cargaAreaEmpleado);
-
-    
-
-
 });
