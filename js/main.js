@@ -53,7 +53,7 @@ document.getElementById("submitEmpleados").addEventListener("click", () => {
 
     const validacion = comprobacionCredenciales(usuarioEmpleadoWeb,claveEmpleadoWeb);
 
-    redireccionWeb("./pages/empleado.html", validacion, usuarioEmpleadoWeb);
+    redireccionWeb("/pages/empleado.html", validacion, usuarioEmpleadoWeb);
 
     document.getElementById("nombreUsuarioEmpleado").value = "";
     document.getElementById("claveUsuarioEmpleado").value = "";
