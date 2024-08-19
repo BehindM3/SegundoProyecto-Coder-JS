@@ -162,6 +162,14 @@ h1{
     box-shadow: 1px 1px 20px #de9d48cb;
 }
 
+.msjCredencialesDenegadas{
+    color: rgba(255, 0, 0, 0.87);
+    text-transform: uppercase;
+    padding: 0 2%;
+    text-shadow:  1px 1px 0.5px #272021;
+    display: none;
+}
+
 /*  ----------------------------- */
 
 .formularios{
