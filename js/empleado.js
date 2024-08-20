@@ -1,6 +1,6 @@
 const empleadoSeleccionado = JSON.parse(localStorage.getItem("empleadoSeleccionado"));
 const fechaActual = new Date();
-const HorariosEmpleado = [];
+const HorariosEmpleado = JSON.parse(localStorage.getItem(`${empleadoSeleccionado.usuario}`)) ? JSON.parse(localStorage.getItem(`${empleadoSeleccionado.usuario}`)) : [];
 
 //Cargamos valores default para facilitar el trabajo al empleado 
 document.getElementById("cargaNombreEmpleado").value = empleadoSeleccionado.usuario;
@@ -14,47 +14,26 @@ function crearHistorial(){
     let article = document.createElement("article");
     const historialEmpleadoSeleccionado = JSON.parse(localStorage.getItem(empleadoSeleccionado.usuario));
     
-    sectionHistorial.innerHTML = "";
+    if( historialEmpleadoSeleccionado != null){
+        sectionHistorial.innerHTML = "";
+        
+        historialEmpleadoSeleccionado.forEach( horario => {
+            const divHistorial = document.createElement("div");
 
-    historialEmpleadoSeleccionado.forEach( horario => {
-        const divHistorial = document.createElement("div");
+            divHistorial.className = `historialDeHorarios`;    
+            divHistorial.innerHTML = `
+                <div>${empleadoSeleccionado.usuario}</div>
+                <div>${horario.area}</div>
+                <div>${horario.fecha}</div>
+                <div>${horario.entrada}</div>
+                <div>${horario.salida}</div>
+            `;
 
-        divHistorial.className = `historialDeHorarios`;    
-        divHistorial.innerHTML = `
-            <div>${empleadoSeleccionado.usuario}</div>
-            <div>${horario.area}</div>
-            <div>${horario.fecha}</div>
-            <div>${horario.entrada}</div>
-            <div>${horario.salida}</div>
-        `;
+            article.appendChild(divHistorial);
+        });
 
-        article.appendChild(divHistorial);
-    });
-
-    sectionHistorial.append(article);
-}
-
-//Agregar historial al JSON
-async function agregarJSON(nuevoHorario){
-
-
-    const datosParaEnviar = JSON.stringify(nuevoHorario);
-
-    const postEspecificaciones = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'aplication/json'
-        },
-        body: datosParaEnviar
-    };
-
-    const respuestaHistorial = await fetch('../json/historial.json', postEspecificaciones);
-    const historial = await respuestaHistorial.json();
-
-    console.log(respuestaHistorial);
-    console.log(historial);
-    
-    
+        sectionHistorial.append(article);
+    }
 }
 
 
@@ -67,9 +46,6 @@ function nuevoHorarioEnLocalStorage(nombre, fecha, entrada, salida, area){
         salida, 
         area
     };
-
-    agregarJSON(nuevoHorarioObjeto)
-    .then(datos => datos)
 
     HorariosEmpleado.unshift(nuevoHorarioObjeto);
 
@@ -111,3 +87,8 @@ document.getElementById("resetCargarHorario").addEventListener("click", function
     document.getElementById("cargaHoraSalidaEmpleado").value = "";
 });
  
+
+//Refrescar la pagina e historial
+document.addEventListener('DOMContentLoaded', () => {
+    crearHistorial();
+});

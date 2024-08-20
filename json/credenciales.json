@@ -1,0 +1,34 @@
+{
+  "empleados": [
+    {
+      "id": 1 ,
+      "usuario": "Javier", 
+      "clave": "1234",
+      "area": "Ingeniero"
+    },
+    {
+      "id": 2 ,
+      "usuario": "Santiago",
+      "clave": "abcd",
+      "area": "RRHH"
+    },
+    {
+      "id": 3 ,
+      "usuario": "Lisandro",
+      "clave": "a1b2",
+      "area": "Gerente"
+    },
+    {
+      "id": 4 ,
+      "usuario": "Luna",
+      "clave": "2001abc",
+      "area": "Administrativo"
+    }
+  ],
+  "admin": [
+    {
+      "usuario": "admin",
+      "clave": "admin"
+    }
+  ]
+}
