@@ -163,6 +163,7 @@ h1{
 }
 
 .msjCredencialesDenegadas{
+    font-size: .8rem;
     color: rgba(255, 0, 0, 0.87);
     text-transform: uppercase;
     padding: 0 2%;
@@ -385,6 +386,15 @@ input{
     margin: 5px 10px;
     border-bottom: solid 2px #ffffffa6;
     backdrop-filter: blur(5px);
+}
+
+/* --------------  */
+
+.historialDeHorarios{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
 

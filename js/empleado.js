@@ -1,49 +1,84 @@
-//Empleados 
-let empleadoSeleccionado = localStorage.getItem("empleadoSeleccionado");
-let areaempleadoSeleccionado = localStorage.getItem(empleadoSeleccionado);
+const empleadoSeleccionado = JSON.parse(localStorage.getItem("empleadoSeleccionado"));
+const fechaActual = new Date();
 const HorariosEmpleado = [];
 
+//Cargamos valores default para facilitar el trabajo al empleado 
+document.getElementById("cargaNombreEmpleado").value = empleadoSeleccionado.usuario;
+document.getElementById("cargaFechaEmpleado").value = fechaActual.toISOString().split('T')[0];
+document.getElementById("cargaAreaEmpleado").value = empleadoSeleccionado.area;
 
-document.getElementById("cargaNombreEmpleado").value = empleadoSeleccionado;
-document.getElementById("cargaAreaEmpleado").value = areaempleadoSeleccionado;
-
-function mostrarHistorial(){
+//Muestra de historial
+function crearHistorial(){
     
     let sectionHistorial = document.getElementById("historialHorario");
     let article = document.createElement("article");
-
+    const historialEmpleadoSeleccionado = JSON.parse(localStorage.getItem(empleadoSeleccionado.usuario));
+    
     sectionHistorial.innerHTML = "";
 
-    HorariosEmpleado.forEach(horario => {
+    historialEmpleadoSeleccionado.forEach( horario => {
         const divHistorial = document.createElement("div");
-        divHistorial.textContent = `${horario.nuevoHorarioObjeto.fecha} ${horario.nuevoHorarioObjeto.entrada} ${horario.nuevoHorarioObjeto.salida} - ${horario.nombre} `;
-        divHistorial.className = "HistorialDeHorarios";
+
+        divHistorial.className = `historialDeHorarios`;    
+        divHistorial.innerHTML = `
+            <div>${empleadoSeleccionado.usuario}</div>
+            <div>${horario.area}</div>
+            <div>${horario.fecha}</div>
+            <div>${horario.entrada}</div>
+            <div>${horario.salida}</div>
+        `;
+
         article.appendChild(divHistorial);
     });
 
     sectionHistorial.append(article);
 }
 
-function agregarNuevoHorario(nombre, fecha, entrada, salida, area){
+//Agregar historial al JSON
+async function agregarJSON(nuevoHorario){
 
-    const nuevoHorarioObjeto = {
-        fecha, entrada, salida, area
+
+    const datosParaEnviar = JSON.stringify(nuevoHorario);
+
+    const postEspecificaciones = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'aplication/json'
+        },
+        body: datosParaEnviar
     };
-    console.log(nuevoHorarioObjeto);
-    
-    const nuevoHorario = {
-        nombre, nuevoHorarioObjeto
-    };
 
-    localStorage.setItem(nombre, nuevoHorario);
+    const respuestaHistorial = await fetch('../json/historial.json', postEspecificaciones);
+    const historial = await respuestaHistorial.json();
 
-    HorariosEmpleado.unshift(nuevoHorario);
-    console.log(HorariosEmpleado);
+    console.log(respuestaHistorial);
+    console.log(historial);
     
-    mostrarHistorial();
+    
 }
 
-document.getElementById("submitCargarHorario").addEventListener("click", () => {
+
+//Creacion y agregado de nuevo horarios 
+function nuevoHorarioEnLocalStorage(nombre, fecha, entrada, salida, area){
+    
+    const nuevoHorarioObjeto = {
+        fecha, 
+        entrada, 
+        salida, 
+        area
+    };
+
+    agregarJSON(nuevoHorarioObjeto)
+    .then(datos => datos)
+
+    HorariosEmpleado.unshift(nuevoHorarioObjeto);
+
+    localStorage.setItem(nombre, JSON.stringify(HorariosEmpleado));
+}
+
+
+//Botones Enviar y Reset de historial 
+document.getElementById("submitCargarHorario").addEventListener("click", (event) => {
     
     event.preventDefault();
 
@@ -52,16 +87,27 @@ document.getElementById("submitCargarHorario").addEventListener("click", () => {
     let entradaCargaHorario = document.getElementById("cargaHoraEntradaEmpleado").value;
     let salidaCargaHorario = document.getElementById("cargaHoraSalidaEmpleado").value;
     let areaTrabajoCargaHorario = document.getElementById("cargaAreaEmpleado").value;
+    let denegacion = document.querySelector(".msjCredencialesDenegadas");
 
-    agregarNuevoHorario(nombreEmpleadoCargaHorario, fechaCargaHorario, entradaCargaHorario, salidaCargaHorario, areaTrabajoCargaHorario);
+    if( entradaCargaHorario >= salidaCargaHorario ){
+        denegacion.style.display = "block"
+    }else{
+        denegacion.style.display = "none"
+        nuevoHorarioEnLocalStorage(nombreEmpleadoCargaHorario, fechaCargaHorario, entradaCargaHorario, salidaCargaHorario, areaTrabajoCargaHorario);
+        crearHistorial();
+    }
+
 });
 
 document.getElementById("resetCargarHorario").addEventListener("click", function(event) {
 
     event.preventDefault();
-    document.getElementById("cargaNombreEmpleado").value = empleadoSeleccionado;
-    document.getElementById("cargaAreaEmpleado").value = areaempleadoSeleccionado;
-    document.getElementById("cargaFechaEmpleado").value = "";
+
+    document.getElementById("cargaNombreEmpleado").value = empleadoSeleccionado.usuario;
+    document.getElementById("cargaFechaEmpleado").value = fechaActual.toISOString().split('T')[0];
+    document.getElementById("cargaAreaEmpleado").value = empleadoSeleccionado.area;
+
     document.getElementById("cargaHoraEntradaEmpleado").value = "";
     document.getElementById("cargaHoraSalidaEmpleado").value = "";
 });
+ 

@@ -16,7 +16,7 @@ const Administrador = {usuario: "admin", clave: "admin" };
 
 //Recargamos en el Local-Storage todas las  credenciales de empleados 
 Empleados.forEach(empleado => {
-    localStorage.setItem(empleado.usuario, JSON.stringify(empleado));
+    localStorage.setItem(empleado.id, JSON.stringify(empleado));
 });
 
 //Hacemos aparecer y desaparecer los menu de Log-In para empleados 
