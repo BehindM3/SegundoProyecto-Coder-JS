@@ -1,4 +1,4 @@
-const urlCredencialesJSON = "../json/credenciales.json";
+const urlCredencialesJSON = "json/credenciales.json";
 
 //Hacemos aparecer y desaparecer los menu de Log-In para empleados 
 document.getElementById("ingresoEmpleados").addEventListener("click", () => {
