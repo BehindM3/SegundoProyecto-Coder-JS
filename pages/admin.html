@@ -10,7 +10,7 @@
 <body>
     <header>
         <section class="cabecera">
-            <h1 id="titulo">WO\ME</h1>
+            <a href="../index.html" class="logo"><h1 id="titulo">WO\ME</h1></a>
             <button type="button" id="botonMenuDesplegable" class="botonMenuDesplegable" >
                 <div></div>
                 <div></div>
@@ -19,9 +19,30 @@
         </section>
         <div class="lineaDivisoraCabecera"></div>
     </header>
-    <main>
-        <section>
-            
+    <main class="mainAdmin">
+        <section class="contenedorBusquedaAdmin">
+            <div class="tituloBusquedaAdmin">
+                <h2>Busqueda</h2>
+            </div>
+            <form method="get" class="formularios">
+                <fieldset>
+                    <label for="busquedaNombreEmpleado">Empleado:</label>
+                    <input type="text" name="busquedaNombreEmpleado" id="busquedaNombreEmpleado">
+                </fieldset>
+                <fieldset>
+                    <label for="busquedaFechaEmpleado">Fecha:</label>
+                    <input type="date" name="busquedaFechaEmpleado" id="busquedaFechaEmpleado">
+                </fieldset>
+                <fieldset class="fieldsetBotonesBuscarHistoriales">
+                    <button type="submit" id="botonBuscarHistoriales" class="botonesBusquedaEmpleados">Buscar</button>
+                    <button type="reset" id="botonLimpiarCredencialesBusqueda" class="botonesBusquedaEmpleados" >Limpiar</button>
+                </fieldset>
+            </form>
+        </section>
+        <section class="contenedorHistorialEmpleadosAdmin">
+            <div class="tituloHistorialAdmin">
+                <h2>Horarios</h2>
+            </div>
         </section>
     </main>
 </body>

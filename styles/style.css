@@ -43,10 +43,15 @@ header{
     background-color: rgba(256,256,256,0.35);
 }
 
+.logo{
+    text-decoration: none;
+    color: inherit;
+    margin-left: 3dvw;
+}
+
 h1{
     font-size: 3em;
     color: #ffffffc9;
-    margin-left: 3dvw;
 }
 
 .botonMenuDesplegable{
@@ -67,6 +72,8 @@ h1{
     border-radius: 10px;
 }
 
+/*  MAIN INDEX  */
+
 .mainContenedores{
     color: #ffffffc9;
     min-height: auto;
@@ -77,7 +84,7 @@ h1{
     align-items: center;
     justify-content: space-evenly;
     gap: 2em;
-    margin: 20%  2em;
+    margin: 20dvh  2em;
 }
 
 .nombreEmpresa{
@@ -169,9 +176,10 @@ h1{
     padding: 0 2%;
     text-shadow:  1px 1px 0.5px #272021;
     display: none;
+    text-align: center;
 }
 
-/*  ----------------------------- */
+/*  FORMULARIOS ACREDITACION  */
 
 .formularios{
     width: 100%;
@@ -223,6 +231,7 @@ fieldset{
     justify-content:center;
     gap: 0.3em;
     font-size: 1.5em;
+    margin-bottom: 5px;
 }
 
 input{
@@ -282,7 +291,7 @@ input{
     transform: rotate(-45deg);
 }
 
-/* ------------ */
+/* FORMULARIOS INGRESO POR JS */
 
 #formularioAdmin{
     display: none;
@@ -302,15 +311,15 @@ input{
     transform: translate(-50%, -50%);
 }
 
-/* --------- */
+/* PAGINA EMPLEADOS */
 
-.mainCargaHorario{
+.mainCargaHorario, .mainAdmin{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.cargaHorarioEmpleado, .historialHorariosEmpleado{
+:is(.cargaHorarioEmpleado, .historialHorariosEmpleado, .contenedorBusquedaAdmin, .contenedorHistorialEmpleadosAdmin){
     width: 95%;
     margin-top: 40px;
     color: #ffffffc9;
@@ -321,13 +330,13 @@ input{
     backdrop-filter: blur(100px);
 }
 
-.tituloHorario, .tituloHistorial{
+:is(.tituloHorario, .tituloHistorial, .tituloBusquedaAdmin, .tituloHistorialAdmin){
     position: relative;
     top: -20px;
     right: -15px;
 }
 
-.tituloHorario h2, .tituloHistorial h2{
+:is(.tituloHorario, .tituloHistorial, .tituloBusquedaAdmin, .tituloHistorialAdmin) h2{
     display: inline-block;
     border: solid 2px;
     border-radius: 10px;
@@ -356,16 +365,17 @@ input{
 }
 
 #cargaNombreEmpleado{
-    max-width: 40%;
+    max-width: 30%;
+    text-align: center;
 }
 
-.fieldBotonesCargaHorario{
+:is(.fieldBotonesCargaHorario, .fieldsetBotonesBuscarHistoriales){
     display: flex;
     flex-flow: row nowrap;
-    margin-top: 5%;
+    margin-top: 20px;
 }
 
-.botonCargaHorario{
+:is(.botonCargaHorario, .botonesBusquedaEmpleados){
     font-size: 0.75em;
     padding: 0.5em;
     margin: 5%;
@@ -375,25 +385,23 @@ input{
     color: #ffffffc9;
 }
 
-.botonCargaHorario:hover{
+:is(.botonCargaHorario, .botonesBusquedaEmpleados):hover{
     scale: 1.2;
 }
 
-.botonCargaHorario:active{
+:is(.botonCargaHorario, .botonesBusquedaEmpleados):active{
     color: #272021;
     background-color: #ffffffa6;
     box-shadow: 10px 10px 20px #de9d48cb, -5px -5px 20px #de9d48cb;
     border-color: transparent;
 }
 
-/* --------- */
+/* ESTILOS AGREGADOS POR JS PARA EMPLEADOS */
 
 #historialHorario{
     display: flex;
     flex-flow: column nowrap;
 }
-
-/* --------------  */
 
 .historialDeHorarios{
     display: flex;
@@ -404,8 +412,16 @@ input{
     font-size: 0.85em;
 }
 
+/* PAGINA ADMIN ESTILOS APARTADO BUSQUEDA DE EMPLEADOS */
 
-/* --------- */
+#busquedaNombreEmpleado{
+    max-width: 150px;
+    text-align: center;
+}
+
+
+
+/* MEDIA - QUERIES */
 
 @media (max-width: 769px ){
     header{
@@ -419,7 +435,7 @@ input{
         margin-bottom: 1em;
         gap: 0.5em;
     }
-    h1{
+    .logo{
         margin-left: 0;
     }
     .botonMenuDesplegable{

@@ -11,7 +11,7 @@
 
     <header>
         <section class="cabecera">
-            <h1 id="titulo">WO\ME</h1>
+            <a href="#" class="logo"><h1 id="titulo">WO\ME</h1></a>
             <button type="button" id="botonMenuDesplegable" class="botonMenuDesplegable" >
                 <div></div>
                 <div></div>
@@ -38,7 +38,7 @@
         <section class="formularios formularioActivoEmpleados" id="formularioEmpleados">
             <div class="formularioIngreso">
                 <h3 class="tituloCardFormulario">Inicio de sesion empleado</h3>
-                <form method="get" class="formularioIngreso--ajuste">
+                <form method="post" class="formularioIngreso--ajuste">
                     <fieldset>
                         <label for="nombreUsuarioEmpleado">Nombre de Usuario:</label>
                         <input type="text" name="nombreUsuarioEmpleado" id="nombreUsuarioEmpleado" autocomplete="off" required>
@@ -47,7 +47,7 @@
                         <label for="claveUsuarioEmpleado">Contraseña:</label>
                         <input type="password" name="claveUsuarioEmpleado" id="claveUsuarioEmpleado" required>
                     </fieldset>
-                    <div class="msjCredencialesDenegadas">Usuario O Clave incorrecta</div>
+                    <div class="msjCredencialesDenegadas" id="msjCredencialesDenegadasEmpleado">Usuario O Clave incorrecta</div>
                     <fieldset>
                         <button type="submit" class="accesoBotones--botones botonSesion" id="submitEmpleados">Enviar</button>
                         <button type="reset" class="accesoBotones--botones botonSesion">Limpiar</button>
@@ -62,7 +62,7 @@
         <section class="formularios formularioActivoAdministrador" id="formularioAdmin">
             <div class="formularioIngreso">
                 <h3 class="tituloCardFormulario">Inicio de sesion administrador</h3>
-                <form method="get" class="formularioIngreso--ajuste">
+                <form method="post" class="formularioIngreso--ajuste">
                     <fieldset>
                         <label for="nombreUsuarioAdmin">Nombre de Administrador:</label>
                         <input type="text" name="nombreUsuarioAdmin" id="nombreUsuarioAdmin" autocomplete="off" required>
@@ -71,6 +71,7 @@
                         <label for="claveUsuarioAdmin">Contraseña:</label>
                         <input type="password" name="claveUsuarioAdmin" id="claveUsuarioAdmin" required>
                     </fieldset>
+                    <div class="msjCredencialesDenegadas" id="msjCredencialesDenegadasAdmin">Usuario O Clave incorrecta</div>
                     <fieldset>
                         <button type="submit" class="accesoBotones--botones botonSesion" id="submitAdmin">Enviar</button>
                         <button type="reset" class="accesoBotones--botones botonSesion">Limpiar</button>
