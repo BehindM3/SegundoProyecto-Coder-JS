@@ -1,4 +1,4 @@
-const urlCredencialesJSON = "./json/credenciales.json";
+const urlCredencialesJSON = "json/credenciales.json";
 
 //Precargar fecha actual
 const fechaActual = new Date().toISOString().split('T')[0];
@@ -100,8 +100,6 @@ function imprimirHistorial( historial , nombreEmpleado){
     }
     else if( historial != null && historial.length != 0){
 
-        console.log("here");
-
         historial.forEach( (horario) => {
             const divHistorial = document.createElement("div");
 
@@ -169,12 +167,7 @@ async function filtrado(empleadoSolicitado, fechaSolicitada) {
 
     }
 
-    console.log(historialSolicitado);
-    
-
     imprimirHistorial(historialSolicitado, empleadoSolicitado);
-    
-
 }
 
 //Funcion limpiar inputs
