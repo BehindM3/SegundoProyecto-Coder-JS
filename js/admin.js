@@ -1,4 +1,4 @@
-const urlCredencialesJSON = "json/credenciales.json";
+const urlCredencialesJSON = "../json/credenciales.json";
 
 //Precargar fecha actual
 const fechaActual = new Date().toISOString().split('T')[0];
