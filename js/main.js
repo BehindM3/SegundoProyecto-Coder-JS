@@ -1,5 +1,5 @@
 //Cambiar direccion al subirlo a github ya que lee direcciones desde el root y no desde la posicion del archivo
-const urlCredencialesJSON = "../json/credenciales.json";
+const urlCredencialesJSON = "./json/credenciales.json";
 const redirEmpleados = "./pages/empleado.html";
 const redirAdmin = "./pages/admin.html";
 

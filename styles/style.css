@@ -399,6 +399,7 @@ input{
 /* ESTILOS AGREGADOS POR JS PARA EMPLEADOS */
 
 #historialHorario{
+    min-height: 20px;
     display: flex;
     flex-flow: column nowrap;
 }
@@ -419,9 +420,37 @@ input{
     text-align: center;
 }
 
+.historialesSolicitadoPorAdmin--Empleado{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin: 15px 0;
+}
 
+.historialesSolicitadoPorAdmin--Empleado div:nth-child(2){
+    min-width: 65px;
+}
+
+.historialesSolicitadoPorAdmin--Empleado div:first-child{
+    min-width: 55px;
+}
+
+.peticionInvalida{
+    margin: 15px 3px;
+    text-align: center;
+    font-size: 1.6em;
+    text-shadow: 2px 2px 0 #272021;
+}
 
 /* MEDIA - QUERIES */
+
+@media (max-width: 426px ){
+
+    .historialesSolicitadoPorAdmin--Empleado{
+        font-size: 0.75em;
+    }
+
+}
 
 @media (max-width: 769px ){
     header{
