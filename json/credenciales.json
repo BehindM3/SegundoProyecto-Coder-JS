@@ -23,6 +23,12 @@
       "usuario": "Luna",
       "clave": "2001abc",
       "area": "Administrativo"
+    },
+    {
+      "id": 5 ,
+      "usuario": "Edson",
+      "clave": "12345",
+      "area": "Ingeniero"
     }
   ],
   "admin": [

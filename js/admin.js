@@ -100,7 +100,8 @@ function imprimirHistorial( historial , nombreEmpleado){
     }
     else if( historial != null && historial.length != 0){
 
-        historial.forEach( (horario) => {
+        historial.forEach( (horario) => {           
+
             const divHistorial = document.createElement("div");
 
             divHistorial.className = `historialesSolicitadoPorAdmin--Empleado`;
@@ -185,16 +186,88 @@ document.querySelector("#botonBuscarHistoriales").addEventListener("click", (eve
     let fechaBuscada = document.querySelector("#busquedaFechaEmpleado").value;
     
     filtrado(nombreEmpleadoBuscado, fechaBuscada);
-
-    limpiarInputs();
 });
 
 //Se resetean los valores al apretar el boton 'Limpiar'
 document.querySelector("#botonLimpiarCredencialesBusqueda").addEventListener("click", (event) => {
     
     event.preventDefault();
-
     limpiarInputs();
 });
 
-filtrado("","");
+//Eliminamos el horario que se pasa por referencia
+
+function eliminarHorario (horarioEliminar){ 
+
+    const almacenjeEmpleadoSolicitado = JSON.parse(localStorage.getItem(horarioEliminar.nombre));
+    let indiceHorario = -1;
+
+    for ( horario in almacenjeEmpleadoSolicitado){
+
+        if( almacenjeEmpleadoSolicitado[horario].fecha == horarioEliminar.fecha ){
+            if( almacenjeEmpleadoSolicitado[horario].entrada == horarioEliminar.entrada ){
+                if(almacenjeEmpleadoSolicitado[horario].salida == horarioEliminar.salida ){
+                    indiceHorario = horario;
+                }
+            }
+        }        
+
+    }
+
+    almacenjeEmpleadoSolicitado.splice(indiceHorario, 1);
+    
+    localStorage.removeItem(horarioEliminar.nombre);
+
+    if( almacenjeEmpleadoSolicitado.length != 0 ){
+        localStorage.setItem( horarioEliminar.nombre, JSON.stringify(almacenjeEmpleadoSolicitado) );
+    }
+
+}
+
+//Se elimina el horario al clickear el boton eliminar
+const eliminarHorariosLlamado = () => {
+    
+    document.querySelector(".contenedorHistorialEmpleadosAdmin").addEventListener("click", (event) =>  {
+
+        if( event.target.nodeName == "BUTTON"){
+            
+            const inputNombre = document.getElementById("busquedaNombreEmpleado").value;
+            const inputFecha = document.getElementById("busquedaFechaEmpleado").value;
+
+            const horarioClickeado = event.target.closest('.historialesSolicitadoPorAdmin--Empleado');
+            const infoHorario = horarioClickeado.querySelectorAll('div');
+            
+            let arrayInfoHorario = [];
+            
+            infoHorario.forEach( prop => {
+                arrayInfoHorario.unshift(prop.innerText);
+            });
+            
+    
+            const objetoHorario = {
+                nombre: arrayInfoHorario[5],
+                area: arrayInfoHorario[4],
+                fecha: arrayInfoHorario[3],
+                entrada: arrayInfoHorario[2],
+                salida: arrayInfoHorario[1]
+            };
+            
+            eliminarHorario(objetoHorario);
+        
+            filtrado(inputNombre , inputFecha);
+    
+        }
+    });
+};
+
+
+
+//Refrescar la pagina e historial
+document.addEventListener('DOMContentLoaded', () => {
+
+    filtrado("","");
+
+    eliminarHorariosLlamado();
+    
+
+});

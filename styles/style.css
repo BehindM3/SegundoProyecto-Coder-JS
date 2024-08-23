@@ -424,6 +424,7 @@ input{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
+    align-items: center;
     margin: 15px 0;
 }
 
@@ -440,6 +441,27 @@ input{
     text-align: center;
     font-size: 1.6em;
     text-shadow: 2px 2px 0 #272021;
+}
+
+/* Botones eliminar */
+.botonEliminarHorario{   
+    font-size: 0.65em;
+    padding: 10px;
+    border: solid 2px;
+    border-radius: 10px;
+    background-color: #372c2e8c;
+    color: #ffffffc9;
+}
+
+.botonEliminarHorario:active{
+    color: #272021;
+    box-shadow: 10px 10px 20px #de9d48cb, -5px -5px 20px #de9d48cb;
+    background-color: #ffffffa6;
+    border-color: #ffffffc9;
+}
+
+.botonEliminarHorario:hover{
+    scale: 1.1;
 }
 
 /* MEDIA - QUERIES */
