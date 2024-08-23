@@ -54,24 +54,6 @@ h1{
     color: #ffffffc9;
 }
 
-.botonMenuDesplegable{
-    display: flex;
-    flex-direction: column;
-    width: 3rem;
-    gap: 0.6rem;
-    background: transparent;
-    border: 0;
-    margin: 0 3dvw 0 0;
-    cursor: pointer;
-}
-
-.botonMenuDesplegable div{
-    background: #ffffffc9;
-    height: 3px;
-    width: 100%;
-    border-radius: 10px;
-}
-
 /*  MAIN INDEX  */
 
 .mainContenedores{
