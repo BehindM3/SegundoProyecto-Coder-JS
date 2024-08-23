@@ -1,9 +1,5 @@
 const urlCredencialesJSON = "../json/credenciales.json";
 
-//Precargar fecha actual
-const fechaActual = new Date().toISOString().split('T')[0];
-document.getElementById("busquedaFechaEmpleado").value = fechaActual;
-
 //Funcion para traer los nombres de los empleados desde el JSON
 async function arrayNombreDeEmpleados(){
 
