@@ -17,6 +17,9 @@ Funcionamientos actuales :
         -Agregar horarios cumplidos en la empresa, que se guardan en el "Local Storage", para siempre ser visible
 
     Seccion Administrador:
+        -Puede accederse al apartado de Administrador la siguiente credencial:
+            {    usuario: admin     clave: admin    }
+    
         -Pueden obtenerse 4 tipos de filtros, para la busqueda del horario que se desee:
             
             _Historial completo (Al dejar vacio ambos campos).
